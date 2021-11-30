@@ -2,7 +2,7 @@
 
 #### Application based on project from youtube: https://www.youtube.com/watch?v=Gx4iBLKLVHk
 
-### Improve changes:
+### Improved changes:
 - add data transfer object and form
 - modify controller and service
 - add mapper service
