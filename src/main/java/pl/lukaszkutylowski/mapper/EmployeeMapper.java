@@ -14,7 +14,9 @@ import java.util.UUID;
 public class EmployeeMapper {
 
     public Employee entityUpdate(Employee employeeToUpdate, EmployeeForm form) {
-        return Employee.builder()
+        return employeeToUpdate == null ?
+                Employee.builder().build() :
+                Employee.builder()
                 .id(employeeToUpdate.getId())
                 .name(form.getName())
                 .email(form.getEmail())
@@ -26,7 +28,9 @@ public class EmployeeMapper {
     }
 
     public Employee toEntity(EmployeeForm form) {
-        return Employee.builder()
+        return form == null ?
+                Employee.builder().build() :
+                Employee.builder()
                 .name(form.getName())
                 .email(form.getEmail())
                 .jobTitle(form.getJobTitle())
@@ -37,7 +41,9 @@ public class EmployeeMapper {
     }
 
     public EmployeeDto toDto(Employee entity) {
-        return EmployeeDto.builder()
+        return entity == null ?
+                EmployeeDto.builder().build() :
+                EmployeeDto.builder()
                 .id(entity.getId())
                 .name(entity.getName())
                 .email(entity.getEmail())
@@ -50,6 +56,7 @@ public class EmployeeMapper {
 
     public EmployeeListDto toListDto(List<Employee> employees) {
         List<EmployeeDto> employeeDtoList = new ArrayList<>();
+        employees = employees == null ? new ArrayList<>() : employees;
         employees.forEach(e -> employeeDtoList.add(toDto(e)));
         return EmployeeListDto.builder()
                 .employees(employeeDtoList)

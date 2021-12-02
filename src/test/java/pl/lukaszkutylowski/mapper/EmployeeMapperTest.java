@@ -9,6 +9,7 @@ import pl.lukaszkutylowski.dto.EmployeeListDto;
 import pl.lukaszkutylowski.form.EmployeeForm;
 import pl.lukaszkutylowski.model.Employee;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static pl.lukaszkutylowski.data.EmployeeDataModelTestCreator.*;
@@ -42,6 +43,19 @@ class EmployeeMapperTest {
     }
 
     @Test
+    void shouldNullableEntityUpdateTest() {
+        // given
+        Employee employeeEmpty = new Employee();
+        EmployeeForm formEmpty = EmployeeForm.builder().build();
+        Employee employeeNull = null;
+        EmployeeForm formNull = null;
+
+        // when // then
+        employeeMapper.entityUpdate(employeeEmpty, formEmpty);
+        employeeMapper.entityUpdate(employeeNull, formNull);
+    }
+
+    @Test
     void shouldToEntityTest() {
         // given
         EmployeeForm form = createEmployeeFormToAddEmployee();
@@ -60,6 +74,17 @@ class EmployeeMapperTest {
     }
 
     @Test
+    void shouldNullableToEntityTest() {
+        // given
+        EmployeeForm formEmpty = EmployeeForm.builder().build();
+        EmployeeForm formNull = null;
+
+        // when // then
+        employeeMapper.toEntity(formEmpty);
+        employeeMapper.toEntity(formNull);
+    }
+
+    @Test
     void shouldToDtoTest() {
         // given
         Employee employeeToDto = createEmployee();
@@ -75,6 +100,17 @@ class EmployeeMapperTest {
         Assertions.assertEquals(PHONE_NUMBER_1, dto.getPhone());
         Assertions.assertEquals(IMAGE_URL_1, dto.getImageUrl());
         Assertions.assertEquals(EMPLOYEE_CODE_1, dto.getEmployeeCode());
+    }
+
+    @Test
+    void shouldNullableToDtoTest() {
+        // given
+        Employee employeeEmpty = new Employee();
+        Employee employeeNull = null;
+
+        // when // then
+        employeeMapper.toDto(employeeEmpty);
+        employeeMapper.toDto(employeeNull);
     }
 
     @Test
@@ -104,6 +140,16 @@ class EmployeeMapperTest {
         Assertions.assertEquals(PHONE_NUMBER_1, employeeDto2.getPhone());
         Assertions.assertEquals(IMAGE_URL_1, employeeDto2.getImageUrl());
         Assertions.assertEquals(EMPLOYEE_CODE_1, employeeDto2.getEmployeeCode());
+    }
 
+    @Test
+    void shouldNullableToDtoListTest() {
+        // given
+        List<Employee> employeesEmpty = new ArrayList<>();
+        List<Employee> employeesNull = null;
+
+        // when // then
+        employeeMapper.toListDto(employeesEmpty);
+        employeeMapper.toListDto(employeesNull);
     }
 }

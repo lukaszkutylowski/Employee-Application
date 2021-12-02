@@ -15,7 +15,6 @@ public class EmployeeDataModelTestCreator {
     public static final String EMPLOYEE_CODE_2 = "276034f6-4e44-482a-89a6-a328d83506a5";
     public static final String IMAGE_URL_1 = "https://static.wikia.nocookie.net/jamesbond/images/8/86/Bond_-_Roger_Moore_-_Profile.jpg/revision/latest?cb=20130217201358";
     public static final String IMAGE_URL_2 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4t7RnfJJBkD8c03LnZG8MelpJDJPwDtDm3Q&usqp=CAU";
-    public static final String IMAGE_URL_TOO_LONG = TooLongData.IMAGE_URL_TOO_LONG;
     public static final String PHONE_NUMBER_1 = "123456789";
     public static final String PHONE_NUMBER_2 = "987654321";
     public static final String JOB_TITLE_1 = "Actor";
